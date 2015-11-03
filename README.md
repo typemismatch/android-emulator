@@ -20,7 +20,7 @@ sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\ > /etc/apt/sources
 sudo apt-get update
 sudo apt-get -y install lxc-docker
 ```
-* Setup docker to work with sudo
+* Setup docker to work without sudo
 ```
 sudo service docker start
 sudo usermod -a -G docker ec2-user
