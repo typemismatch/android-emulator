@@ -20,7 +20,23 @@ sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\ > /etc/apt/sources
 sudo apt-get update
 sudo apt-get -y install lxc-docker
 ```
-
+* Setup docker to work with sudo
+```
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+```
+* Test Docker - don't fret if it throws an error, see next step
+```
+docker info
+```
+* If that didn't give the information screen do the following
+```
+(remember skip this step if docker info already works)
+sudo docker -d
+ctrl-z
+sudo service docker start
+docker info
+```
 * Clone this repo 
 ```
 git clone git@github.com:typemismatch/android-emulator.git
