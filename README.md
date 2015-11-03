@@ -50,7 +50,7 @@ docker build -t android-emulator .
 ```
 docker run -dt -p 6901:6901 android-emulator
 ```
-* You can now browse to your host IP on port 6901 and run auto_vnc.html. (pwd below)
+* You can now browse to your host IP on port 6901 and run vnc_auto.html. (pwd below)
 * Once you're in, you'll use the browser to download the Android SDK and then setup your emulators.
 * Note: The pre-built docker image below has the SDK and Emulators installed and tested.
 
