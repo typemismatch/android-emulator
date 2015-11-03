@@ -23,7 +23,7 @@ sudo apt-get -y install lxc-docker
 * Setup docker to work without sudo
 ```
 sudo service docker start
-sudo usermod -a -G docker ec2-user
+sudo usermod -a -G docker ubuntu
 ```
 * Test Docker - don't fret if it throws an error, see next step
 ```
