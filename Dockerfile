@@ -53,19 +53,19 @@ RUN apt-get install nano -y
 RUN apt-get install git -y
 
 # Install Android SDK
-RUN cd /home/root && wget -nv http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz && tar xfo android-sdk_r23.0.2-linux.tgz --no-same-permissions && chmod -R a+rX android-sdk-linux
-RUN rm -rf /home/root/android-sdk_r23.0.2-linux.tgz
+RUN cd /root && wget -nv http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz && tar xfo android-sdk_r23.0.2-linux.tgz --no-same-permissions && chmod -R a+rX android-sdk-linux
+RUN rm -rf /root/android-sdk_r23.0.2-linux.tgz
 
 # Install Android tools
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter tools --no-ui --force -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter platform-tools --no-ui --force -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter platform --no-ui --force -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter build-tools-21.0.1 --no-ui -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-18 --no-ui -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-19 --no-ui -a
-RUN echo y | /home/root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-21 --no-ui -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter tools --no-ui --force -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter platform-tools --no-ui --force -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter platform --no-ui --force -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter build-tools-21.0.1 --no-ui -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-18 --no-ui -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-19 --no-ui -a
+RUN echo y | /root/android-sdk-linux/tools/android update sdk --filter sys-img-x86-android-21 --no-ui -a
 
-ENV ANDROID_HOME /home/root/android-sdk-linux
+ENV ANDROID_HOME /root/android-sdk-linux
 
 
 # xvnc server porst, if $DISPLAY=:1 port will be 5901
