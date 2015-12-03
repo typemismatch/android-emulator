@@ -1,5 +1,6 @@
 # This dockerfile will build an image that can run a full android emulator + the visual emulator over VNC.
 # This is maintained and intended to be run in AWS Docker instances with ECS support.
+# Based on the work by https://github.com/ConSol/docker-headless-vnc-container
 
 FROM ubuntu:14.04
 
@@ -32,10 +33,9 @@ RUN mkdir -p $NO_VNC_HOME/utils/websockify \
     && chmod +x -v /root/noVNC/utils/*.sh
 
 ##### Add Oracle JAVA JRE8
-#RUN apt-get -y install software-properties-common && add-apt-repository ppa:webupd8team/java -y
 RUN mkdir -p $JAVA_HOME \
     # download and extract
-    && wget -qO- $SAKULI_DOWNLOAD_URL/3rd-party/jre-$JAVA_VERSION-linux-x64.tar.gz | tar xz --strip 1 -C $JAVA_HOME \
+    && wget -qO- $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.tar.gz | tar xz --strip 1 -C $JAVA_HOME \
     # set alternatives
     && update-alternatives --install "/usr/bin/java" "java" "$JAVA_HOME/bin/java" 1 \
     && update-alternatives --install "/usr/bin/javaws" "javaws" "$JAVA_HOME/bin/javaws" 1 \
