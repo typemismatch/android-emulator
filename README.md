@@ -4,6 +4,7 @@ This will allow you to build a Docker image running android emulators with NoVNC
 This image is built on Ubuntu 14.04 and runs Docker with AUFS support. It allows you to run an Android Emulator via the Android SDK within the image and view the desktop via NoVNC.
 
 **Note! - This only works if your docker host supports AUFS otherwise you'll run out of space.**
+**New Note! - this build now installs the Android SDK and the image is now < 10Gb limit so you can use the more traditional docker with DeviceMapper without running out of space.
 
 Follow these instructions to build a compatible docker host or cheat and use the public AMI I made available on AWS.
 
@@ -37,7 +38,7 @@ ctrl-z
 sudo service docker start
 docker info
 ```
-* Clone this repo 
+* Clone this repo
 ```
 git clone git@github.com:typemismatch/android-emulator.git
 cd android-emulator
@@ -51,12 +52,9 @@ docker build -t android-emulator .
 docker run -dt -p 6901:6901 android-emulator
 ```
 * You can now browse to your host IP on port 6901 and run vnc_auto.html. (pwd below)
-* Once you're in, you'll use the browser to download the Android SDK and then setup your emulators.
-* Note: The pre-built docker image below has the SDK and Emulators installed and tested.
-
+* You'll now find the android SDK under the root folder, everything is now included in this build so you can run ./android avd to setup your emulators.
 * The default vnc password is "vncpassword".
 
 # Pre-Built Docker Image
 
 You can grab this image from the docker hub, docker pull https://hub.docker.com/r/craigw9292/android-emulator/
-
