@@ -27,6 +27,7 @@ sudo apt-get -y install lxc-docker
 sudo service docker start
 sudo usermod -a -G docker ubuntu
 ```
+* Restart AWS Machine
 * Test Docker - don't fret if it throws an error, see next step
 ```
 docker info
