@@ -41,7 +41,7 @@ docker info
 ```
 * Clone this repo
 ```
-git clone git@github.com:typemismatch/android-emulator.git
+git clone https://github.com/typemismatch/android-emulator.git
 cd android-emulator
 ```
 * Build the docker image
