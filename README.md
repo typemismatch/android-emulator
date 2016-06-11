@@ -53,7 +53,7 @@ docker build -t android-emulator .
 ```
 docker run -dt -p 6901:6901 android-emulator
 ```
-* You can now browse to your host IP on port 6901 and run vnc_auto.html. (pwd below)
+* You can now browse to your host IP on port 6901 and run vnc_auto.html, eg. http://localhost:6901/vnc_auto.html (pwd below)
 * You'll now find the android SDK under the root folder, everything is now included in this build so you can run ./android avd to setup your emulators.
 * The default vnc password is "vncpassword".
 
