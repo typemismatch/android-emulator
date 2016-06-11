@@ -27,7 +27,16 @@ RUN set -x \
  && echo "deb http://extra.linuxmint.com/ rafaela main " >> /etc/apt/sources.list.d/mint.list \
  && : \
  && : xvnc / xfce installation \
- && apt-get update && apt-get upgrade -y && apt-get install -y supervisor vim xfce4 vnc4server wget unzip firefox \
+ && apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y \
+	firefox \
+	supervisor \
+	unzip \
+	vim \
+	vnc4server \
+	wget \
+	xfce4 \
  && mkdir -p $NO_VNC_HOME/utils/websockify \
  && wget -qO- https://github.com/kanaka/noVNC/archive/master.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME \
  && wget -qO- https://github.com/kanaka/websockify/archive/v0.7.0.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME/utils/websockify \
@@ -41,15 +50,24 @@ RUN set -x \
  && update-alternatives --install "/usr/lib/firefox/browser/plugins/mozilla-javaplugin.so" "mozilla-javaplugin.so" "$JAVA_HOME/lib/amd64/libnpjp2.so" 1 \
  && : \
  && : Install chrome browser \
- && apt-get install -y chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg \
+ && apt-get install -y \
+	chromium-browser \
+	chromium-browser-l10n \
+	chromium-codecs-ffmpeg \
  && ln -s /usr/bin/chromium-browser /usr/bin/google-chrome \
  && echo "alias chromium-browser='/usr/bin/chromium-browser --user-data-dir'" >> /root/.bashrc \
  && : \
  && : Setup specifics for android support - glx drivers etc. \
- && apt-get install libgl1-mesa-dev -y \
- && apt-get install libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 -y \
- && apt-get install nano -y \
- && apt-get install git -y \
+ && apt-get install -y \
+	git \
+	lib32gcc1 \
+	lib32ncurses5 \
+	lib32stdc++6 \
+	lib32z1 \
+	libc6-i386 \
+	libgl1-mesa-dev \
+	nano \
+ && apt-get clean \
  && : \
  && : Install Android SDK \
  && wget -qO- http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz | tar xz -C /root/ --no-same-permissions \
